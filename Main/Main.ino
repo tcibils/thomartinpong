@@ -7,6 +7,7 @@
 #include "FastLED.h"
 #include <avr/pgmspace.h>
 
+#include "ball.cpp"
 
 // ----------------------------------------------------------------------------------------------------
 // ----------------------------------   LED MATRIX CODE   ---------------------------------------------
@@ -97,11 +98,7 @@ byte playerButtonPushed[NUMBER_PLAYERS][12] = {
 // ----------------------------------------------------------------------------------------------------
 // ----------------------------------------------------------------------------------------------------
 
-// Useful struct
-struct pointOnMatrix {
-  byte lineCoordinate;
-  byte columnCoordinate;
-};
+
 
 pointOnMatrix Player[4] = {
   {0,0},
@@ -118,7 +115,7 @@ unsigned const int growthSpeed = 1500;  // In miliseconds. Can be used to make s
 
 
 void setup() {
-
+  Ball test_ball = Ball({0,0},{0,0},{0,0},{0,0});
   Serial.begin(9600);
 
   // Set the four matrix pins to output
