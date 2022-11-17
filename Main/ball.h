@@ -1,4 +1,4 @@
-#include "pointOnMatrix.cpp"
+#include "pointOnMatrix.h"
 
 class Ball {       // The class
   public:             // Access specifier

@@ -1,3 +1,4 @@
+#include "pointOnMatrix.h"
 
 class Wall {
   public:

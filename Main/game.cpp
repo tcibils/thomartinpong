@@ -1,10 +1,10 @@
 #include "game.h"
-
+#include "ball.h"
 Game::Game() {     
   initializeWalls();
 }
 
-Game::initializeWalls() {
+void Game::initializeWalls() {
   for(int i = 0; i<124; i++) {
       // Building first line of walls
       if(i < 32) {
@@ -28,10 +28,10 @@ Game::initializeWalls() {
    }
 }
     
-Game::collisionCheck() {
+bool Game::collisionCheck() {
   
 }
 
-Game::fillLEDMatrix() {
+void Game::fillLEDMatrix() {
   // I guess the game will have to do the filling
 }
