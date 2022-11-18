@@ -7,7 +7,7 @@
 #include "FastLED.h"
 #include <avr/pgmspace.h>
 
-#include "game.cpp"
+#include "game.h"
 
 // ----------------------------------------------------------------------------------------------------
 // ----------------------------------   LED MATRIX CODE   ---------------------------------------------
@@ -104,7 +104,7 @@ unsigned long lastMillis = 0;
 unsigned const int tickSpeed = 1500;  // In miliseconds. Can be used to make something happen every X miliseconds.
 
 void setup() {
-  Ball test_ball = Ball({0,0},{0,0},{0,0},{0,0});
+  // Ball test_ball = Ball({0,0},{0,0},{0,0},{0,0});
   Serial.begin(9600);
 
   // Set the four matrix pins to output
