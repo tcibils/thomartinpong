@@ -12,7 +12,6 @@ class Game {
 
     void initializeWalls();
     bool collisionCheck();
-    void fillLEDMatrix();
     
   private:
     // Ball gameBall;

@@ -107,6 +107,9 @@ void setup() {
   // Ball test_ball = Ball({0,0},{0,0},{0,0},{0,0});
   Serial.begin(9600);
 
+  Game test_game = Game();
+  
+
   // Set the four matrix pins to output
   FastLED.addLeds<NEOPIXEL, LEDSONE_DATA_PIN>(leds[0], SINGLE_NUM_LEDS);
   FastLED.addLeds<NEOPIXEL, LEDSTWO_DATA_PIN>(leds[1], SINGLE_NUM_LEDS);
@@ -135,8 +138,10 @@ void loop() {
   // Checking buttons at loop start
   checkAllButtons();
 
+  fillLEDMatrix(test_game);
+  
   // Tick loop  
-  if(millis() - tickSpeed > 200) {
+  if(millis() - lastMillis > tickSpeed) {
   
     
     lastMillis = millis();

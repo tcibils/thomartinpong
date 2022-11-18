@@ -42,10 +42,3 @@ void Game::initializeWalls() {
 bool Game::collisionCheck() {
   
 }
-
-// I guess the game will have to do the filling
-void Game::fillLEDMatrix() {
-  for(int i = 0; i < 124; i++) {
-    // LEDMatrix[gameWalls[i].getLineCoordinate()][gameWalls[i].getColumnCoordinate()] = White;
-  }
-}
