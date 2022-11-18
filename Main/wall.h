@@ -6,11 +6,14 @@ class Wall {
     Wall();
 
     // Setter
-    void setPosition(pointOnMatrix requiredPosition);
+    void setLineCoordinate(int requiredLineCoordinate);
+    void setColumnCoordinate(int requiredColumnCoordinate);
     
     // Getter
-    // pointOnMatrix getPosition();
+    int getLineCoordinate();
+    int getColumnCoordinate();
 
   private:
-    pointOnMatrix wallPosition;
+    int lineCoordinate;
+    int columnCoordinate; 
 };

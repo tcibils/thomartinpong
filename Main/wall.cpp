@@ -1,18 +1,25 @@
 #include "wall.h"
 
+// Constructor
 Wall::Wall() {
-  wallPosition.lineCoordinate = 0;
-  wallPosition.columnCoordinate = 0;
+  lineCoordinate = 0;
+  columnCoordinate = 0;
 }
 
-void Wall::setPosition(pointOnMatrix requiredPosition) {
-  wallPosition.lineCoordinate = requiredPosition.lineCoordinate;
-  wallPosition.columnCoordinate = requiredPosition.columnCoordinate;
+// Setters
+void Wall::setLineCoordinate(int requiredLineCoordinate) {
+  lineCoordinate = requiredLineCoordinate;
 }
 
-/*
-Wall::Wall(pointOnMatrix requiredPosition) {
-  wallPosition.lineCoordinate = requiredPosition.lineCoordinate;
-  wallPosition.columnCoordinate = requiredPosition.columnCoordinate;
+void Wall::setColumnCoordinate(int requiredColumnCoordinate) {
+  columnCoordinate = requiredColumnCoordinate;
 }
-*/
+
+// Getters
+int Wall::getLineCoordinate() {
+  return lineCoordinate;
+}
+
+int Wall::getColumnCoordinate() {
+  return columnCoordinate;
+}

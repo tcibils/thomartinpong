@@ -7,6 +7,9 @@ class Game {
     // Constructor
     Game();
 
+    // Getter
+    Wall getWall(int wallIndex);
+
     void initializeWalls();
     bool collisionCheck();
     void fillLEDMatrix();
