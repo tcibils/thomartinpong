@@ -103,11 +103,13 @@ byte playerButtonPushed[NUMBER_PLAYERS][12] = {
 unsigned long lastMillis = 0;
 unsigned const int tickSpeed = 1500;  // In miliseconds. Can be used to make something happen every X miliseconds.
 
+
+Game test_game = Game();
+
 void setup() {
   // Ball test_ball = Ball({0,0},{0,0},{0,0},{0,0});
   Serial.begin(9600);
 
-  Game test_game = Game();
   
 
   // Set the four matrix pins to output
@@ -138,7 +140,6 @@ void loop() {
   // Checking buttons at loop start
   checkAllButtons();
 
-  fillLEDMatrix(test_game);
   
   // Tick loop  
   if(millis() - lastMillis > tickSpeed) {
@@ -154,6 +155,7 @@ void loop() {
   
   // Update the LEDMatrix here using game logic results.
 
+  fillLEDMatrix(test_game);
   // Plotting LEDMatrix on the 32x32 physical matrix
   outputDisplay();
   delay(1);

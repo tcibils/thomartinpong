@@ -22,7 +22,7 @@ void Game::initializeWalls() {
       // Building first column        
       else if(i >= 32 && i < 62) {
         gameWalls[i].setLineCoordinate(i-31);
-        gameWalls[i].setColumnCoordinate(1);
+        gameWalls[i].setColumnCoordinate(0);
       }
 
       // Building last column    
@@ -34,7 +34,7 @@ void Game::initializeWalls() {
       // Building last line of walls
       else if( i >= 92 && i < 124) {
         gameWalls[i].setLineCoordinate(31);
-        gameWalls[i].setColumnCoordinate(i);
+        gameWalls[i].setColumnCoordinate(i-92);
       }
    }
 }
