@@ -3,6 +3,9 @@ void fillLEDMatrix(Game usedGame) {
     LEDMatrix[usedGame.getWall(i).getLineCoordinate()][usedGame.getWall(i).getColumnCoordinate()] = White;
   }
    for(int i=0; i<usedGame.getNumberOfBalls(); i++){
-     LEDMatrix[(int)usedGame.getBall(i).getXPos()][(int)usedGame.getBall(i).getYPos()] = Blue;   
+    LEDMatrix[(int)usedGame.getBall(i).getXPos()][(int)usedGame.getBall(i).getYPos()] = Blue;   
+   // Serial.println((int)usedGame.getBall(i).getXPos());
+   // Serial.println((int)usedGame.getBall(i).getXSpeed());
+
   }
 }

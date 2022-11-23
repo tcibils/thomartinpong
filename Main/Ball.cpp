@@ -1,8 +1,9 @@
 #include "ball.h"
+#include <Arduino.h>
 
 Ball::Ball(double position_x=10, double position_y=10,
       int size_x = 1, int size_y = 1,
-      int speed_x = 1, int speed_y = 1,
+      int speed_x = 3, int speed_y = 3,
       int acc_x = 0, int acc_y= 0){
       this->pos_x = position_x;
       this->pos_y = position_y;
@@ -15,9 +16,13 @@ Ball::Ball(double position_x=10, double position_y=10,
 }
 
 
-void Ball::update_pos( int millis){
-      this->setXPos(this->getXPos()*millis/1000);
-      this->setYPos(this->getYPos()*millis/1000);
+void Ball::update_pos(int millis){
+      Serial.println(this->pos_x);
+
+      this->pos_x = (this->pos_x + this->pos_y*millis/1000);
+      Serial.println(this->pos_x);
+
+      this->setYPos(this->getYPos() + this->getYSpeed()*millis/1000);
 }
 
 double Ball::getXPos(){
@@ -36,7 +41,7 @@ int Ball::getYSize(){
 int Ball::getXSpeed(){
       return this->speed_x;
 }
-int Ball::getYspeed(){
+int Ball::getYSpeed(){
       return this->speed_y;
 }
 int Ball::getXAcc(){
@@ -48,6 +53,7 @@ int Ball::getYAcc(){
 
 void Ball::setXPos(double x_value){
       this->pos_x = x_value;
+
 }
 void Ball::setYPos (double y_value){
       this->pos_y = y_value;

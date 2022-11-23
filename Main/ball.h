@@ -3,7 +3,7 @@ class Ball {
   public:                  
     Ball(double position_x=10, double position_y=10,
       int size_x = 1, int size_y = 1,
-      int speed_x = 1, int speed_y = 1,
+      int speed_x = 3, int speed_y = 3,
       int acc_x = 0, int acc_y= 0);
   
 
@@ -13,7 +13,7 @@ class Ball {
     int getXSize();
     int getYSize();
     int getXSpeed();
-    int getYspeed();
+    int getYSpeed();
     int getXAcc();
     int getYAcc();
 

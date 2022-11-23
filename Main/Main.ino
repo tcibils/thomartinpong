@@ -109,7 +109,7 @@ byte playerButtonPushed[NUMBER_PLAYERS][12] = {
 
 
 unsigned long lastMillis = 0;
-unsigned const int tickSpeed = 1500;  // In miliseconds. Can be used to make something happen every X miliseconds.
+unsigned const int tickSpeed = 1000;  // In miliseconds. Can be used to make something happen every X miliseconds.
 
 Game test_game = Game();
 
@@ -151,10 +151,12 @@ void loop() {
 
   
   // Tick loop  
-  if(millis() - lastMillis > tickSpeed) {
+  if((millis() - lastMillis) > tickSpeed) {
 
-    test_game.collisionCheck();
+  //  test_game.collisionCheck();
+    //Serial.println(test_game.getBall(0).getXPos());
     test_game.update_position_balls(millis() - lastMillis);
+    //Serial.println(test_game.getBall(0).getXPos());
     lastMillis = millis();
 
 
