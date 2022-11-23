@@ -13,6 +13,7 @@ double abs(double value){
 Game::Game(int numberOfBalls = 1) {
   this->numberOfBalls = numberOfBalls; //Set up the number of balls (default 1)
   this->balls = new Ball[this->numberOfBalls]; //Updates the number of balls
+  initializeWalls();
 }
 
 void Game::update_position_balls(int millis){
@@ -71,5 +72,3 @@ bool Game::collisionCheck() {
     }
   }
 }
-
-

@@ -1,9 +1,9 @@
 #include "ball.h"
 
-Ball::Ball(double position_x=125, double position_y=125,
+Ball::Ball(double position_x=10, double position_y=10,
       int size_x = 1, int size_y = 1,
       int speed_x = 1, int speed_y = 1,
-      int acc_x = 0, int acc_y= 1){
+      int acc_x = 0, int acc_y= 0){
       this->pos_x = position_x;
       this->pos_y = position_y;
       this->size_x = size_x;
@@ -73,4 +73,3 @@ void Ball::setXAcc(int x_value){
 void Ball::setYAcc(int y_value){
       this->acc_y = y_value;
 }  
-

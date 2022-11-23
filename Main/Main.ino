@@ -166,7 +166,7 @@ void loop() {
   clearLEDMatrix();
     // Update the LEDMatrix here using game logic results.
 
-  fillLEDMatrix(test_game, lastMillis);
+  fillLEDMatrix(test_game);
   // Plotting LEDMatrix on the 32x32 physical matrix
   outputDisplay();
   delay(1);
