@@ -1,3 +1,10 @@
+/*
+TODO: 
+Make sure the array of balls is dynamic (can we add/del balls)
+Future issue: Construct by default will spawn balls at the same place, they could be on top of each other
+For now we keep 1 ball and try to make it work
+*/
+
 /* 
  *  Creator : Thomas Cibils
  *  FastLED tuto : https://github.com/FastLED/FastLED/wiki/Basic-usage - used for WS2812B 5050 RGB LED Strip 5M 150 300 Leds 144 60LED/M Individual Addressable 5V
@@ -6,6 +13,7 @@
 #include <TimerOne.h>
 #include "FastLED.h"
 #include <avr/pgmspace.h>
+#include <stdio.h>
 
 #include "game.h"
 
@@ -103,14 +111,14 @@ byte playerButtonPushed[NUMBER_PLAYERS][12] = {
 unsigned long lastMillis = 0;
 unsigned const int tickSpeed = 1500;  // In miliseconds. Can be used to make something happen every X miliseconds.
 
-
 Game test_game = Game();
 
 void setup() {
-  // Ball test_ball = Ball({0,0},{0,0},{0,0},{0,0});
+
   Serial.begin(9600);
 
-  
+  Serial.print("ASDFASD");
+
 
   // Set the four matrix pins to output
   FastLED.addLeds<NEOPIXEL, LEDSONE_DATA_PIN>(leds[0], SINGLE_NUM_LEDS);
@@ -138,24 +146,27 @@ void setup() {
 
 void loop() {
   // Checking buttons at loop start
+
   checkAllButtons();
 
   
   // Tick loop  
   if(millis() - lastMillis > tickSpeed) {
-  
-    
+
+    test_game.collisionCheck();
+    test_game.update_position_balls(millis() - lastMillis);
     lastMillis = millis();
+
+
+    // End of game logic here.
+    // Clearing LEDMatrix first to avoid noise.
+
   }
 
-
-  // End of game logic here.
-  // Clearing LEDMatrix first to avoid noise.
   clearLEDMatrix();
-  
-  // Update the LEDMatrix here using game logic results.
+    // Update the LEDMatrix here using game logic results.
 
-  fillLEDMatrix(test_game);
+  fillLEDMatrix(test_game, lastMillis);
   // Plotting LEDMatrix on the 32x32 physical matrix
   outputDisplay();
   delay(1);

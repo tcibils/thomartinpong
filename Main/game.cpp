@@ -1,9 +1,31 @@
 #include "game.h"
-#include "ball.h"
+
+double abs(double value){
+  if(value>0){
+    return value;
+  }
+  else{
+    return -value;
+  }
+}
 
 // Constructor
-Game::Game() {     
-  initializeWalls();
+Game::Game(int numberOfBalls = 1) {
+  this->numberOfBalls = numberOfBalls; //Set up the number of balls (default 1)
+  this->balls = new Ball[this->numberOfBalls]; //Updates the number of balls
+}
+
+void Game::update_position_balls(int millis){
+  for(int i=0; i<this->getNumberOfBalls(); i++){
+    this->getBall(i).update_pos(millis);
+  }
+}
+int Game::getNumberOfBalls(){
+  return this->numberOfBalls;
+}
+
+Ball Game::getBall(int ballIndex){
+  return balls[ballIndex];
 }
 
 // Getter
@@ -40,5 +62,14 @@ void Game::initializeWalls() {
 }
     
 bool Game::collisionCheck() {
-  
+  for(int j=0;j<getNumberOfBalls();j++){
+    for(int i=0;i<124;i++){
+      if(abs(getBall(j).getXPos()-getWall(i).getColumnCoordinate())<2 && (getBall(j).getYPos()-getWall(i).getLineCoordinate())<2){
+        getBall(i).setXSpeed(0);
+        getBall(i).setYspeed(0);
+      }
+    }
+  }
 }
+
+
